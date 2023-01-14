@@ -1,30 +1,12 @@
-# Hello website!
+#project_name
+##A BeaverHacks Winter 2023 Prject
+##A Bit About the ProjectInspiration
+Human communication goes far past words. We often convey more with our facial expressions, body language, and tone than with the actual words we say. 
+With many disorders it becomes almost impossible to decipher the meaning and emotion of our non-verbal communication, especially facial expressions. In Frontotemporal disorders (a subset of dementias), strokes, schizoid disorder, TBIs, other disorders, an agnosia develops where a person stops being able to create and recognize facial expressions. This can cause daily turmoil by mistaking someone’s sadness for anger or shock for happiness. Their lack of facial expressions or inappropriate use of facial expressions also make it harder for them to communicate with their loved ones.
+In similar disorders that cause a loss in recognition, there is often training to help improve and monitor the patient’s skills. We see this often in relearning to read or write after strokes and with aphasias. Our group thought the same principles of relearning and monitoring could be applied to facial expressions!
+We sought out to design an initial web application for learning and creating facial expressions based on emotions. With gamification and metric tracking, we hope that we can create tools for people to practice non-verbal skills that were lost to them with illness.
 
-This is a basic HTML starter project you can build on however you like. No need to save. While you develop your site, your changes will happen ✨ immediately in the preview window. On the left you'll see the files that make up your site, including HTML, JavaScript, and CSS. You can upload assets like images or audio in `assets`. The rest is up to you and your imagination. 🦄
-
-## What's in this project?
-
-← `README.md`: That's this file, where you can tell people what your cool website does and how you built it.
-
-← `index.html`: This is the main web page for your site. The HTML defines the structure and content of the page using _elements_. You'll see references in the HTML to the JS and CSS files. Try clicking the image in the center of the page!
-
-← `style.css`: CSS files add styling rules to your content. The CSS applies styles to the elements in your HTML page. The style rules also make the image move when you click it.
-
-← `script.js`: If you're feeling fancy you can add interactivity to your site with JavaScript. The code in the JavaScript file runs when the page loads, and when the visitor clicks the button you can add below.
-
-Open each file and check out the comments (in gray) for more info.
-
-## Try this next 🏗️
-
-Take a look in `TODO.md` for next steps you can try out in your new site!
-
-___Want a minimal version of this project to build your own website? Check out [Blank Website](https://glitch.com/edit/#!/remix/glitch-blank-website)!___
-
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
-
-## You built this with Glitch!
-
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
-
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.
+##What it does
+[project_name] is a web application that has two games for practicing recognition of emotions through facial expressions. 
+In Game 1: “What’s the Emotion?”, users will be presented with an image of someone making another facial expression. The user will then select the emotion they think the image is portraying from a list of emotions (angry, happy, sad, surprise, and neutral). If they correctly identify the emotion, they’ll receive a point. 
+In Game 2: “Match the Emotion!”, users will be presented with an emotion and prompted to take and upload a picture of them showing that emotion with their face. The web application will then use an API to check if that image correctly matches the emotion prompted. If they correctly match the emotion, they’ll receive a point.  
