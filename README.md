@@ -1,5 +1,5 @@
 # project_name
-## A BeaverHacks Winter 2023 Prject
+## A BeaverHacks Winter 2023 Project
 ## A Bit About the ProjectInspiration
 Human communication goes far past words. We often convey more with our facial expressions, body language, and tone than with the actual words we say. 
 With many disorders it becomes almost impossible to decipher the meaning and emotion of our non-verbal communication, especially facial expressions. In Frontotemporal disorders (a subset of dementias), strokes, schizoid disorder, TBIs, other disorders, an agnosia develops where a person stops being able to create and recognize facial expressions. This can cause daily turmoil by mistaking someone’s sadness for anger or shock for happiness. Their lack of facial expressions or inappropriate use of facial expressions also make it harder for them to communicate with their loved ones.
