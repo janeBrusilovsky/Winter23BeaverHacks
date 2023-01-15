@@ -23,7 +23,3 @@ class AccountForm(forms.Form):
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=50)
     password = forms.CharField(label='Password', max_length=50)
-
-
-class ResultForm(forms.Form):
-    score = forms.IntegerField()

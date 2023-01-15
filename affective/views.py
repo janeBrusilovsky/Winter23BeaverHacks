@@ -1,11 +1,11 @@
-import datetime
+import json
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from .forms import AccountForm, LoginForm, ResultForm
+from .forms import AccountForm, LoginForm
 from .models import CopyResult, IdentifyResult
 
 
@@ -74,9 +74,11 @@ def identify_emotion_game(request):
         return HttpResponseRedirect('/affective/')
     else:
         if request.method == 'POST':
-            form = ResultForm(request.POST)
-            if form.is_valid():
-                result = IdentifyResult(request.session['username'], form.cleaned_data['score'])
+            data = json.loads(request.body.decode())
+            score = data['score']
+            IdentifyResult.objects.create(
+                username=request.session['username'], time_played='', score=score)
+            return HttpResponse(200)
         else:
             return render(request, 'affective/identify_game.html')
 
@@ -87,9 +89,8 @@ def copy_emotion_game(request):
         return HttpResponseRedirect('/affective/')
     else:
         if request.method == 'POST':
-            form = ResultForm(request.POST)
-            if form.is_valid():
-                result = CopyResult(request.session['username'], form.cleaned_data['score'])
+
+            return None
         else:
             return render(request, 'index.html')
 

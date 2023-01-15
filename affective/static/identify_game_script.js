@@ -125,11 +125,21 @@ function guess(buttonId) {
 
 function stopGame() {
   // reset game variables (after saving them to user profile with Django?)
-  /*
-  send score to backend
-  somewhere here
-  Post request to URL (will be given by Matt in Discord)
-  */
+  let csrftoken = getCookie('csrftoken')
+    console.log(score)
+    let scoreForm = JSON.stringify({score: score})
+    console.log(scoreForm)
+  fetch('/affective/identify', {
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken
+      },
+      body: scoreForm,
+      credentials: 'same-origin'
+  }).then(response => console.log(response))
+
   if (score > bestScore) {
     //display previous score too?
     bestScore = score;
@@ -181,6 +191,22 @@ function getRandomImage() {
   images[num].used = true // set the new image flag to true since it is now "used"
   
   return images[num]
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        let cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 
   

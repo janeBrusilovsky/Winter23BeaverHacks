@@ -17,32 +17,32 @@
         <h1 class="title">Affective</h1>
     </div>
     <br>
-
-    <form action="/affective/" method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <input type="submit" value="Login">
-    </form>
-    <br>
-    <a href="/affective/account/create">
-        <button>Create Account</button>
-    </a>
-    <br>
-    {% if messages %}
-        {% for message in messages %}
-        <li{%  if message.tags  %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <div class="center">
+        <form action="/affective/" method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Login">
+            <a href="/affective/account/create">
+                <button id="create-acct-btn">Create Account</button>
+            </a>
+        </form>
         <br>
-        {% endfor %}
-    {% endif %}
-    <div class="instructions">
-          <h2>What is Affective?</h2>
-          <p> <b>af·fec·tive</b> /əˈfektiv/</p>
-            <p>Relating to moods, feelings or their expression   </p>
-            <p>Affective is a tool for individuals to retrain their ability to recognize and imitate emotions based on facial expressions!</p>
-          <hr>
+        {% if messages %}
+            {% for message in messages %}
+            <li{%  if message.tags  %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            <br>
+            {% endfor %}
+        {% endif %}
+        <div class="instructions">
+              <h2>What is Affective?</h2>
+              <p> <b>af·fec·tive</b> /əˈfektiv/</p>
+                <p>Relating to moods, feelings or their expression   </p>
+                <p>Affective is a tool for individuals to retrain their ability to recognize and imitate emotions based on facial expressions!</p>
+              <hr>
+        </div>
     </div>
 
     <footer class="footer">
