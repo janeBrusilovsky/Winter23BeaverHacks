@@ -22,7 +22,6 @@
 .App {
   text-align: center;
   font-family: "HK Grotesk";
-  border: 4px dotted green;
   margin: 16px 8px;
   width: 700px;
   margin: 0 auto 0 auto;
@@ -61,14 +60,14 @@ a:hover {color: #776e65;}   /* Mouse over link */
 a:active {color: #776e65;}  /* Selected link   */
 
 .displayedEmotion {
-  color: #776e65;
+  color: #f3b27a;
   font-size: 50px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .buttonContainer {
-  margin-top: 15px;
+  margin-top: 40px;
   margin-bottom: 15px;
 }
 
@@ -82,8 +81,8 @@ a:active {color: #776e65;}  /* Selected link   */
 }
 
 .scoresContainer {
-  border: 1px solid red;
-  width: 50px;
+  /* border: 1px solid red; */
+  width: 75px;
   margin-left: 148px;
   margin-bottom: 10px;
 }
@@ -92,3 +91,14 @@ a:active {color: #776e65;}  /* Selected link   */
   margin-left: 50;
   margin-right: 50;
 }
+
+img {
+  height: 400px;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+.emotionP1 {
+  margin-bottom: 10px;
+}
+

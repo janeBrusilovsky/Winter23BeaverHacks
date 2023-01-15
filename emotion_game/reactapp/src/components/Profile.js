@@ -51,7 +51,7 @@ const Profile = ({ setImage }) => {
               e.preventDefault()
               setPicture('')
             }}
-            className="btn btn-primary"
+            className="retakeButton"
           >
             Retake
           </button>

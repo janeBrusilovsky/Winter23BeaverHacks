@@ -1,11 +1,14 @@
 import './App.css'
 import { useState } from 'react'
-import ImageUpload from './components/ImageUpload'
+import Game from './components/Game'
 
 const App = () => {
   const emotionList = ['neutral', 'happy', 'sad', 'surprise', 'anger']
   const [emotion, setEmotion] = useState('happy')
   const [result, setResult] = useState(null)
+  const [score, setScore] = useState(0)
+  const [best, setBest] = useState(0)
+  const [lives, setLives] = useState(3)
 
   const getRandomEmotion = () => {
     const currentEmotion = emotion
@@ -14,28 +17,24 @@ const App = () => {
     if (emotionList[randomNumber] === currentEmotion) {
       getRandomEmotion()
     }
+    console.log('new emotion is', emotionList[randomNumber])
     setEmotion(emotionList[randomNumber])
+    return
   }
 
   return (
     <div className="App">
-      <h1 className="title">Emotion Imitation</h1>
-      <h2 id="game-area">Match Your Own Face or Images to a Random Emotion!</h2>
-      <p>Show a</p>
+      <h1 className="title">Affective: Emotion Imitation</h1>
+      <h2 className="emotionP1" id="game-area">Show a<span>&#x28;</span>n<span>&#41;</span></h2>
       <p className="displayedEmotion"><strong>{emotion}</strong></p>
-      <p>emotion</p>
+      <h2>facial expression!</h2>
       <div className="scoresContainer">
-        <div className="scoreContainer">
-          Score:
-        </div>
-        <div className="bestScoreContainer">
-          Best:
-        </div>
-        <div className="livesContainer">
-          Lives:
-        </div>
+          <p>Score: {score}</p>
+          <p>Best: {best}</p>
+          <p>Lives: {lives}</p>
       </div>
-      <ImageUpload emotion={emotion} setEmotion={setEmotion} setResult={setResult} getRandomEmotion={getRandomEmotion} />
+      <Game emotion={emotion} setEmotion={setEmotion} setResult={setResult} getRandomEmotion={getRandomEmotion} 
+      score={score} setScore={setScore} lives={lives} setLives={setLives}/>
       {result && alert(result)}
       <div className="info">
         <h2>How To Play</h2>
