@@ -7,26 +7,51 @@ const App = () => {
   const [emotion, setEmotion] = useState('happy')
   const [result, setResult] = useState(null)
   const [score, setScore] = useState(0)
-  const [best, setBest] = useState(0)
+  // const [best, setBest] = useState(0)
   const [lives, setLives] = useState(3)
+  const [color, setColor] = useState('happy')
+
+  // const getRandomEmotion = () => {
+  //   const currentEmotion = emotion
+  //   if (currentEmotion !== emotion) {
+  //     return
+  //   }
+  //   console.log('current emotion before resetting:', currentEmotion)
+  //   const randomNumber = Math.floor(Math.random() * (4 - 0) + 0)
+  //   console.log('new emotion from new random number', emotionList[randomNumber])
+  //   if (emotionList[randomNumber] === currentEmotion) {
+  //     getRandomEmotion()
+  //   }
+  //   console.log('new emotion is:', emotionList[randomNumber])
+  //   setEmotion(emotionList[randomNumber])
+  //   return
+  // }
 
   const getRandomEmotion = () => {
-    const currentEmotion = emotion
-    console.log('current emotion before resetting:', currentEmotion)
-    const randomNumber = Math.floor(Math.random() * emotionList.length)
-    if (emotionList[randomNumber] === currentEmotion) {
-      getRandomEmotion()
+    let currentEmotion = emotion
+
+    let min = Math.ceil(0)
+    let max = Math.floor(emotionList.length - 1)
+
+    let randNum = Math.floor(Math.random() * (max - min + 1) + min)
+
+    let newEmotion = emotionList[randNum]
+
+    while (newEmotion === currentEmotion) {
+      randNum = Math.floor(Math.random() * (max - min + 1) + min)
+      newEmotion = emotionList[randNum]
+      console.log('newEmotion', newEmotion)
     }
-    console.log('new emotion is:', emotionList[randomNumber])
-    setEmotion(emotionList[randomNumber])
-    return
+    console.log('new emotion is', newEmotion)
+    setEmotion(newEmotion)
+
   }
 
   return (
     <div className="App">
-      <h1 className="title">Affective: Emotion Imitation</h1>
+      <h1 className="title">Affective: Emotion Expression</h1>
       <h2 className="emotionP1" id="game-area">Show a<span>&#x28;</span>n<span>&#41;</span></h2>
-      <p className="displayedEmotion"><strong>{emotion}</strong></p>
+      <p className="displayedEmotion" id={emotion}><strong>{emotion}</strong></p>
       <h2>facial expression!</h2>
       <div className="scoresContainer">
           <p><strong>Score:</strong> {score}</p>
@@ -34,7 +59,7 @@ const App = () => {
           <p><strong>Lives:</strong> {lives}</p>
       </div>
       <Game emotion={emotion} setEmotion={setEmotion} setResult={setResult} getRandomEmotion={getRandomEmotion} 
-      score={score} setScore={setScore} lives={lives} setLives={setLives}/>
+      score={score} setScore={setScore} lives={lives} setLives={setLives} />
       {/* {result && alert(result)} */}
       {/* <button className="startButton">Start</button> */}
       <div className="info" id="info">

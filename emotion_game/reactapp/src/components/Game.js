@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Profile from './Profile'
 
-const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScore, lives, setLives }) => {
+const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScore, lives, setLives, changeColor }) => {
   const [image, setImage] = useState('')
   const [camera, setCamera] = useState(false)
   let userImageEmotion = null
@@ -11,12 +11,14 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
     e.preventDefault()
   }
 
+  // set image state for display
   const handleImage = (e) => {
     console.log('e', e)
     setImage(e.target.files[0])
     setCamera(false)
   }
 
+  // POST image to API and game logic handling 
   const handleImageSubmit = () => {
     const data = new FormData()
     console.log('image is', image)
@@ -48,6 +50,7 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
         if (userImageEmotion !== emotion) {
           console.log('# of lives before dec.:', lives)
           if (lives === 1) {
+            // post to DB
             setLives(3)
             setScore(0)
             setImage('')
@@ -60,7 +63,7 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
             if (camera === false) {
               setImage('')
             }
-          }, 5000)
+          }, 3000)
           return
         }
         alert(`Great job, it's a match. Take another turn with the new emotion!`)
@@ -70,13 +73,14 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
           if (camera === false) {
             setImage('')
           }
-        }, 5000)
+        }, 3000)
       })
       .catch(error => {
         console.error(error)
       })
   }
 
+  // stop / reset game and POST score to db
   const handleStopGame = () => {
     if (score === 0 && lives === 3) {
       return
@@ -88,15 +92,27 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
       return
     }
 
-    if (score === 1) {
-      setLives(3)
-      alert(`Game stopped and has been reset. You scored ${score} point.`)
-      return
-    }
+    // if (score === 1) {
+    //   setLives(3)
+    //   alert(`Game stopped and has been reset. You scored ${score} point.`)
+    //   return
+    // }
+
+    // POST score to db
+    fetch('', {
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ "score": score })
+  })
+  .then(response => response.json())
+  .then(response => console.log(JSON.stringify(response)))
 
     setLives(3)
     setScore(0)
-    alert(`Game stopped and has been reset. You scored ${score} points. Nice job!`)
+    alert(`Game stopped and has been reset. You scored ${score} point(s). Nice job!`)
   }
 
   return (
@@ -119,10 +135,6 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
         <div className="buttonContainer">
           <input type="file" name="image-file" id="file" onChange={handleImage} className="inputfile"/>
           <label className="custom-up-label"htmlFor="file">Custom Upload</label>
-          {/* <label htmlFor="file-upload" className="custom-file-upload" onChange={handleImage}>
-            <p className="fa fa-cloud-upload">Custom Upload</p>
-          </label>
-          <input id="file-upload" type="file"/> */}
           <button className="useCamBtn" onClick={() => setCamera(true)}>Use Your Camera</button>
         </div>
         <div>

@@ -239,3 +239,24 @@ img {
   width: 30px;
   height: 30px;
 }
+
+#neutral {
+  color: #cccccc; 
+}
+
+#happy {
+  color: #ffd500;
+}
+
+#sad {
+  color: #84ebff;
+}
+
+#surprise {
+  color: #ffab00;
+}
+
+#anger {
+  color: #d80000;
+}
+
