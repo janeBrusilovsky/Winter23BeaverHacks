@@ -19,4 +19,4 @@ Affective is a web application that has two games for practicing recognition of 
 
 In Game 1: Emotion Recogniton, users will be presented with an image of someone making another facial expression. The user will then select the emotion they think the image is portraying from a list of emotions (angry, happy, sad, surprise, and neutral). If they correctly identify the emotion, they’ll receive a point. 
 
-In Game 2: Emotion Imitation, users will be presented with an emotion and prompted to take and upload a picture of them showing that emotion with their face. The web application will then use an API to check if that image correctly matches the emotion prompted. If they correctly match the emotion, they’ll receive a point.  
+In Game 2: Emotion Imitation, users will be presented with an emotion and prompted to take and upload a picture of them showing that emotion with their face. The web application will then use an API to check if that image correctly matches the emotion prompted. If they correctly match the emotion, they’ll receive a point. 
