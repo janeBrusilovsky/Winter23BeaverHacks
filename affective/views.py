@@ -101,12 +101,11 @@ def score_report(request):
         return HttpResponseRedirect('/affective/')
     else:
         username = request.session['username']
-        copy_results = CopyResult.objects.filter(username__exact=username)\
-            .order_by('-time_played')[:30].values('time_played', 'score')
+        # copy_results = CopyResult.objects.filter(username__exact=username).order_by('-time_played')[:30].values('time_played', 'score')
         identify_results = IdentifyResult.objects.filter(username__exact=username)\
             .order_by('-time_played')[:30].values('time_played', 'score')
         return render(request, 'affective/score_report.html',
-                      {'copy_results': copy_results, 'identify_results': identify_results, 'username': username})
+                      {'identify_results': identify_results, 'username': username})
 
 
 def logout(request):

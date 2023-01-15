@@ -25,10 +25,11 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
             <input type="submit" value="Login">
-            <a href="/affective/account/create">
-                <button id="create-acct-btn">Create Account</button>
-            </a>
         </form>
+    <br>
+        <a href="/affective/account/create">
+            <button id="create-acct-btn">Create Account</button>
+        </a>
         <br>
         {% if messages %}
             {% for message in messages %}
