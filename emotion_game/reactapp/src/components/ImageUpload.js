@@ -5,7 +5,7 @@ import Profile from './Profile'
 const ImageUpload = ({ emotion, setEmotion, setResult, getRandomEmotion }) => {
   const [image, setImage] = useState('')
   const [camera, setCamera] = useState(false)
-  // const [userImageEmotion, setUserImageEmotion] = useState('')
+  const [gameFlag, setGameFlag] = useState(false)
   let userImageEmotion = null
 
   const handleImage = (e) => {
@@ -52,12 +52,6 @@ const ImageUpload = ({ emotion, setEmotion, setResult, getRandomEmotion }) => {
         setTimeout(() => {
           setResult('')
         }, 5500)
-
-        // setTimeout(() => {
-        //   setImage('')
-        //   setResult('')
-        // }, 10000)
-        
       })
       .catch(error => {
         console.error(error)
@@ -71,8 +65,6 @@ const ImageUpload = ({ emotion, setEmotion, setResult, getRandomEmotion }) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input type="file" name="image-file" onChange={handleImage}/>
-        <button onClick={() => setCamera(true)}>Use your own camera</button>
         {/* {camera && <Profile setImage={setImage}/>} */}
         <div className="imageContainer">
           {camera && <Profile setImage={setImage}/>}
@@ -88,25 +80,17 @@ const ImageUpload = ({ emotion, setEmotion, setResult, getRandomEmotion }) => {
             </div>
             )}
         </div>
+        <div className="buttonContainer">
+          <input type="file" name="image-file" onChange={handleImage}/>
+          <button onClick={() => setCamera(true)}>Take Picture With Camera</button>
+        </div>
         <div>
-          <button type="submit" onClick={handleImageSubmit}>Submit Photo</button>
+          <button className="submitButton" type="submit" onClick={handleImageSubmit}>Submit Photo</button>
+        </div>
+        <div>
+          <button className="stopGameButton">Stop Game</button>
         </div>
       </form>
-
-    {/* <div className="imageContainer">
-      {image && (
-        <div>
-          {camera === true ? (
-            ''
-          ) : (
-            <img
-              src={URL.createObjectURL(image)}
-            />
-          )}
-        </div>
-      )}
-    </div> */}
-
     </div>
   )
 }
