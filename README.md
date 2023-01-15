@@ -20,3 +20,8 @@ Affective is a web application that has two games for practicing recognition of 
 In Game 1: Emotion Recogniton, users will be presented with an image of someone making another facial expression. The user will then select the emotion they think the image is portraying from a list of emotions (angry, happy, sad, surprise, and neutral). If they correctly identify the emotion, they’ll receive a point. 
 
 In Game 2: Emotion Imitation, users will be presented with an emotion and prompted to take and upload a picture of them showing that emotion with their face. The web application will then use an API to check if that image correctly matches the emotion prompted. If they correctly match the emotion, they’ll receive a point. 
+
+### Citations
+Arsa Technology. Face Detection and Analysis API. Retrieved January 14, 2023, from https://rapidapi.com/arsa-technology-arsa-technology-default/api/face-detection-and-analysis/details. 
+
+Olszanowski, M., Pochwatko, G., Kuklinski, K., Scibor-Rylski, M., Lewinski, P., & Ohme, R. K. (2015). Warsaw set of emotional facial expression pictures: a validation study of facial display photographs. Frontiers in psychology, 5, 1516. https://doi.org/10.3389/fpsyg.2014.01516
