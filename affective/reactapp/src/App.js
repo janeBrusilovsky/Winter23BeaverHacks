@@ -12,12 +12,12 @@ const App = () => {
 
   const getRandomEmotion = () => {
     const currentEmotion = emotion
-    console.log('current emotion before resetting', currentEmotion)
+    console.log('current emotion before resetting:', currentEmotion)
     const randomNumber = Math.floor(Math.random() * emotionList.length)
     if (emotionList[randomNumber] === currentEmotion) {
       getRandomEmotion()
     }
-    console.log('new emotion is', emotionList[randomNumber])
+    console.log('new emotion is:', emotionList[randomNumber])
     setEmotion(emotionList[randomNumber])
     return
   }
@@ -29,26 +29,39 @@ const App = () => {
       <p className="displayedEmotion"><strong>{emotion}</strong></p>
       <h2>facial expression!</h2>
       <div className="scoresContainer">
-          <p>Score: {score}</p>
-          <p>Best: {best}</p>
-          <p>Lives: {lives}</p>
+          <p><strong>Score:</strong> {score}</p>
+          {/* <p>Best: {best}</p> */}
+          <p><strong>Lives:</strong> {lives}</p>
       </div>
       <Game emotion={emotion} setEmotion={setEmotion} setResult={setResult} getRandomEmotion={getRandomEmotion} 
       score={score} setScore={setScore} lives={lives} setLives={setLives}/>
-      {result && alert(result)}
-      <div className="info">
+      {/* {result && alert(result)} */}
+      {/* <button className="startButton">Start</button> */}
+      <div className="info" id="info">
         <h2>How To Play</h2>
         <p>In game 2, Emotion Imitation, you can practice your ability to recreate a set of facial expressions.</p>
         <ol>
-          <li>You can either take a selfie with your camera or upload an image on your device, so click on either.</li>
-          <li>If you pick 'Take Picture With Camera', set your facial expression, and click 'Capture'.</li>
-          <li>If you pick 'Choose File', select a file from your device.</li>
-          <li>Once done, simply click on 'Submit Photo' to know if you've recreated/matched the emotion above!</li>
+          <li>You can either use your camera or upload an image from your device. Click on either.</li>
+          <li>If you click 'Use Your Camera', set your facial expression, and then click 'Capture'. Retake by clicking 'Retake'.</li>
+          <li>If you click 'Custom Upload', select a file from your device.</li>
+          <li>Once done, simply click on 'Check Facial Expression' to know if you've recreated/matched the emotion above!</li>
+          <li>+1 Score if it's a match. -1 Life if it's not.</li>
           <li>You have 3 lives <span>&#x28;</span>chances<span>&#41;</span> to set a new high-score, or you can simply press 'Stop' to end the game and save your score.</li>
         </ol>
         <a href="#game-area">Start Playing → </a>
       </div>
       <hr></hr>
+      <div className="tempFooter">
+        <a
+          className="btn--Github"
+          target="_top"
+          href="https://github.com/janeBrusilovsky/Winter23BeaverHacks"
+        >
+        <img
+          src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/github_icon1.png?v=1673730485074"
+        />
+        </a> 
+      </div>
     </div>
   )
 }

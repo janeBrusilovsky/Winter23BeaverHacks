@@ -42,6 +42,8 @@ h2 {
 
 .info {
   text-align: left;
+  margin-bottom: 60px;
+  margin-top: 60px;
 }
 
 html {
@@ -67,30 +69,29 @@ a:active {color: #776e65;}  /* Selected link   */
 }
 
 .buttonContainer {
-  margin-top: 40px;
-  margin-bottom: 15px;
-}
-
-.submitButton {
-  margin-top: 40px;
-}
-
-.stopGameButton {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  /* border: 1px solid pink; */
+  width: 400px;
+  margin-left: 150px;
+  margin-right: 150px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .scoresContainer {
   /* border: 1px solid red; */
-  width: 75px;
+  width: 400px;
   margin-left: 148px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
-
+/* 
 .info {
   margin-left: 50;
   margin-right: 50;
-}
+} */
 
 img {
   height: 400px;
@@ -102,3 +103,139 @@ img {
   margin-bottom: 10px;
 }
 
+/* .startButton {
+  background: #abebc6;
+  font-family: HK Grotesk;
+  box-shadow: 0 6px #666;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.startButton:hover {
+  background-color: #56d68c;
+}
+
+.startButton:active, .startButton.lit {
+  background: #abebc6;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+} */
+
+.submitButton {
+  background: #abebc6;
+  font-family: HK Grotesk;
+  box-shadow: 0 6px #666;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.submitButton:hover {
+  background-color: #56d68c;
+}
+
+.submitButton:active, .startButton.lit {
+  background: #abebc6;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+.stopResetButton {
+  margin-top: 35px;
+  background: #F1948A;
+  font-family: HK Grotesk;
+  box-shadow: 0 6px #666;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.stopResetButton:hover {
+  background-color: #cc0000;
+}
+
+.stopResetButton:active, .stopResetButton.lit {
+  background: #cc0000;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+
+.useCamBtn {
+  font-family: "HK Grotesk";
+  font-size: 15px;
+  background: #E6E6EA;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 6px 6px;
+  transition: 500ms; 
+}
+
+.useCamBtn:hover {
+  background: #cccccc;
+}
+
+.captureButton {
+  font-family: "HK Grotesk";
+  font-size: 15px;
+  /* background: #E6E6EA; */
+  background: #f3b27a;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 6px 6px;
+  transition: 500ms; 
+  margin-top: 24px;
+}
+
+.captureButton:hover {
+  background: #ed8934
+}
+
+.retakeButton {
+  font-family: "HK Grotesk";
+  font-size: 15px;
+  background: #f3b27a;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 6px 6px;
+  transition: 500ms; 
+  margin-top: 24px;
+}
+
+.retakeButton {
+  background: #ed8934
+}
+
+.inputfile {
+  /* visibility: hidden etc. wont work */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.custom-up-label {
+  font-family: "HK Grotesk";
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 6px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background: #E6E6EA;
+}
+
+.custom-up-label:hover {
+  background: #cccccc
+}
+
+.tempFooter {
+  margin-top: 20px;
+}
+
+.tempFooter img {
+  width: 30px;
+  height: 30px;
+}
