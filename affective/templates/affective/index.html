@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/face2.png?v=1673758186148" />
+
+    <title>Affective</title>
+
+    <link rel="stylesheet" href="../../static/style.css" />
+
+    <script src="../../static/identify_game_script.js" defer></script>
+  </head>
+<body>
+    <div class="content" role="main">
+        <h1 class="title">Affective</h1>
+    </div>
+    <br>
+
+    <form action="/affective/" method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Login">
+    </form>
+    <br>
+    <a href="/affective/account/create">
+        <button>Create Account</button>
+    </a>
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+        <li{%  if message.tags  %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        <br>
+        {% endfor %}
+    {% endif %}
+    <div class="instructions">
+          <h2>What is Affective?</h2>
+          <p> <b>af·fec·tive</b> /əˈfektiv/</p>
+            <p>Relating to moods, feelings or their expression   </p>
+            <p>Affective is a tool for individuals to retrain their ability to recognize and imitate emotions based on facial expressions!</p>
+          <hr>
+    </div>
+
+    <footer class="footer">
+      <div class="links"></div>
+      <a href="http://www.emotional-face.org/wsefep">Warsaw Set of Emotional Facial Expression Pictures</a>
+      <a
+        class="btn--Github"
+        target="_top"
+        href="https://github.com/janeBrusilovsky/Winter23BeaverHacks"
+      >
+        <img
+          src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/github_icon1.png?v=1673730485074"
+        />
+      </a>
+    </footer>
+</body>
+</html>

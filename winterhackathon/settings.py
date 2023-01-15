@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'emotion_game.apps.EmotionGameConfig',
+    'affective.apps.EmotionGameConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'winterhackathon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'emotion_game/reactapp/build')],
+        'DIRS': [os.path.join(BASE_DIR, 'affective/reactapp/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,7 +120,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'emotion_game/reactapp/build/static')
+    os.path.join(BASE_DIR, 'affective/reactapp/build/static')
 ]
 
 # Default primary key field type

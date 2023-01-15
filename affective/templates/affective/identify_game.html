@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/face2.png?v=1673758186148" />
+
+    <title>Affective</title>
+
+    <link rel="stylesheet" href="../../static/style.css" />
+
+    <script src="../../static/identify_game_script.js" defer></script>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="content" role="main">
+        <h1 class="title">Affective: Emotion Recognition</h1>
+        <div class="game"></div>
+          <img
+            id="randImg"
+            src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/face2.png?v=1673758186148"
+          />
+          <p id ="spacer">       </p>
+          <p id ="gameText" class="hidden">Select the emotion that matches the image!</p>
+          <div class= "game">
+            <button id="neutral" class="hidden" onclick="guess(this.id)">Neutral</button>
+            <button id="happy" class="hidden" onclick="guess(this.id)">Happy</button>
+            <button id="sad" class="hidden" onclick="guess(this.id)">Sad</button>
+            <button id="surprised" class="hidden" onclick="guess(this.id)">Surprised</button>
+            <button id="angry" class="hidden" onclick="guess(this.id)">Angry</button>
+          </div>
+          <div class= "beginBtn">
+            <button id="startBtn" onclick="startGame()"> Start </button>
+            <button id="stopBtn" class="hidden" onclick="stopGame()"> Stop </button>
+          </div>
+          <div id="score" class="hidden">Your Score:</div>
+        <div id="lives" class="hidden">Lives:</div>
+        </div>
+        <!-- Instructions on using this project -->
+        <div class="instructions">
+          <h2>How To Play</h2>
+          <p>
+            In Game 1, Emotion Recognition, you can practice your ability to identify emotions based of facial expressions. The facial expressions were pulled from Warsaw Set of Emotional Facial Expression Pictures.
+          </p>
+          <p>
+            Select the emotion that matches the image shown. Each correct answer increases your score, while each incorrect answer loses a life. You are given 3 lives until it's Game Over.
+          </p>
+        </div>
+      </div>
+
+    <footer class="footer">
+      <div class="links"></div>
+      <a href="http://www.emotional-face.org/wsefep">Warsaw Set of Emotional Facial Expression Pictures</a>
+      <a
+        class="btn--Github"
+        target="_top"
+        href="https://github.com/janeBrusilovsky/Winter23BeaverHacks"
+      >
+        <img
+          src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/github_icon1.png?v=1673730485074"
+        /> 
+      </a>
+    </footer>
+  </body>
+</html>
