@@ -40,23 +40,23 @@ const ImageUpload = ({ emotion, setEmotion, setResult, getRandomEmotion }) => {
         console.log('userimageemotion', userImageEmotion)
         console.log('emotion desired', emotion)
         if (userImageEmotion !== emotion) {
-          setResult(`The person in the image is not showing a ${emotion} emotion, try another image!`)
+          setResult(`We did not detect the ${emotion} emotion, try again!`)
           setTimeout(() => {
             setResult('')
             setImage('')
           }, 10000)
           return
         }
-        setResult(`Great job, the image matches the emotion!`)
+        setResult(`Great job, the image matches the emotion. Practice again with the new emotion listed above!`)
+        getRandomEmotion()
         setTimeout(() => {
-          getRandomEmotion()
-          setResult('Now try with a different image with the emotion listed above.')
-        }, 2500)
-
-        setTimeout(() => {
-          setImage('')
           setResult('')
-        }, 10000)
+        }, 5500)
+
+        // setTimeout(() => {
+        //   setImage('')
+        //   setResult('')
+        // }, 10000)
         
       })
       .catch(error => {
@@ -73,23 +73,40 @@ const ImageUpload = ({ emotion, setEmotion, setResult, getRandomEmotion }) => {
       <form onSubmit={onSubmit}>
         <input type="file" name="image-file" onChange={handleImage}/>
         <button onClick={() => setCamera(true)}>Use your own camera</button>
-        {camera && <Profile setImage={setImage}/>}
+        {/* {camera && <Profile setImage={setImage}/>} */}
+        <div className="imageContainer">
+          {camera && <Profile setImage={setImage}/>}
+          {image && (
+            <div>
+              {camera === true ? (
+                ''
+              ) : (
+                <img
+                  src={URL.createObjectURL(image)}
+                />
+              )}
+            </div>
+            )}
+        </div>
         <div>
           <button type="submit" onClick={handleImageSubmit}>Submit Photo</button>
         </div>
       </form>
 
-    {image && (
-      <div>
-        {camera === true ? (
-          ''
-        ) : (
-          <img
-            src={URL.createObjectURL(image)}
-          />
-        )}
-      </div>
-    )}
+    {/* <div className="imageContainer">
+      {image && (
+        <div>
+          {camera === true ? (
+            ''
+          ) : (
+            <img
+              src={URL.createObjectURL(image)}
+            />
+          )}
+        </div>
+      )}
+    </div> */}
+
     </div>
   )
 }

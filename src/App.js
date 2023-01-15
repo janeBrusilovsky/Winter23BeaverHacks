@@ -1,3 +1,4 @@
+import './App.css'
 import { useState } from 'react'
 import ImageUpload from './components/ImageUpload'
 
@@ -8,7 +9,7 @@ const App = () => {
 
   const getRandomEmotion = () => {
     const currentEmotion = emotion
-    console.log('current emotion', currentEmotion)
+    console.log('current emotion before resetting', currentEmotion)
     const randomNumber = Math.floor(Math.random() * emotionList.length)
     if (emotionList[randomNumber] === currentEmotion) {
       getRandomEmotion()
@@ -17,12 +18,14 @@ const App = () => {
   }
 
   return (
-    <div>
-      <h2>Game 2</h2>
-      <h3>Practice Matching an Emotion To Your Own Images!</h3>
-      <p>Upload an image showing a <strong>{emotion}</strong> emotion</p>
+    <div className="App">
+      <h2>Emotion Imitation Game</h2>
+      <h3>Match an Emotion To Your Own Images or Face!</h3>
+      <p>Show a</p>
+      <p><strong>{emotion}</strong></p>
+      <p>emotion</p>
       <ImageUpload emotion={emotion} setEmotion={setEmotion} setResult={setResult} getRandomEmotion={getRandomEmotion} />
-      {result && result}
+      {result && alert(result)}
     </div>
   )
 }
