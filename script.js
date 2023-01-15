@@ -161,7 +161,7 @@ function stopGame() {
   document.getElementById("lives").classList.add("hidden");
 
   // display original website image
-  document.getElementById("randImg").src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/faces.png?v=1673742504057"
+  document.getElementById("randImg").src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/face2.png?v=1673758186148"
 }
 
 
