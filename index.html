@@ -38,7 +38,7 @@
     <div class="wrapper">
       <div class="content" role="main">
         <!-- This is the start of content for our page -->
-        <h1 class="title">Emotion Recognition</h1>
+        <h1 class="title">Affective: Emotion Recognition</h1>
         <div class="game"></div>
           <img
             id="randImg"
@@ -50,14 +50,15 @@
             <button id="neutral" class="hidden" onclick="guess(this.id)">Neutral</button>
             <button id="happy" class="hidden" onclick="guess(this.id)">Happy</button>
             <button id="sad" class="hidden" onclick="guess(this.id)">Sad</button>
-            <button id="surprise" class="hidden" onclick="guess(this.id)">Surprised</button>
-            <button id="anger" class="hidden" onclick="guess(this.id)">Angry</button>
+            <button id="surprised" class="hidden" onclick="guess(this.id)">Surprised</button>
+            <button id="angry" class="hidden" onclick="guess(this.id)">Angry</button>
           </div>
           <div class= "beginBtn">
             <button id="startBtn" onclick="startGame()"> Start </button>
             <button id="stopBtn" class="hidden" onclick="stopGame()"> Stop </button>
           </div>
           <div id="score" class="hidden">Your Score:</div>
+        <div id="lives" class="hidden">Lives:</div>
           <!-- will need to appendChild when user makes a decision to display result -->
         </div>
         <!-- Instructions on using this project -->
@@ -69,7 +70,10 @@
           <hr>
           <h2>How To Play</h2>
           <p>
-            In game 1, Emotion Recognition, you can practice your ability to identify emotions based of facial expressions. The facial expressions were pulled from Warsaw Set of Emotional Facial Expression Pictures.
+            In Game 1, Emotion Recognition, you can practice your ability to identify emotions based of facial expressions. The facial expressions were pulled from Warsaw Set of Emotional Facial Expression Pictures.
+          </p>
+          <p>
+            Select the emotion that matches the image shown. Each correct answer increases your score, while each incorrect answer loses a life. You are given 3 lives until it's Game Over.
           </p>
           <!-- ADD BUTTON HERE -->
 

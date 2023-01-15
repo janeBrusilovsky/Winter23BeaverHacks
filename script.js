@@ -1,7 +1,8 @@
 //---Global Variables--//
 
-var score, bestScore, counter, lives;
-score = bestScore = counter = lives = 0;
+var score, bestScore, counter;
+score = bestScore = counter = 0;
+var lives = 3;
 var displayedImage = null
 
 class Image {
@@ -43,26 +44,26 @@ let images = [new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec5
               new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/s8.jpg?v=1673728336159','sad'),
               new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/s9.jpg?v=1673728338048','sad'),
               new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/s10.jpg?v=1673728339749','sad'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su7.jpg?v=1673728240136','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su8.jpg?v=1673728241594','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su9.jpg?v=1673728243036','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su10.jpg?v=1673728244472','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su1.jpg?v=1673728341543','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su2.jpg?v=1673728343251','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su3.jpg?v=1673728344953','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su4.jpg?v=1673728346718','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su5.jpg?v=1673728348490','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su6.jpg?v=1673728350185','surprise'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a1.jpg?v=1673728245920','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a2.jpg?v=1673728247326','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a3.jpg?v=1673728248760','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a4.jpg?v=1673728250237','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a5.jpg?v=1673728254247','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a6.jpg?v=1673728257607','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a7.jpg?v=1673728260843','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a8.jpg?v=1673728263947','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a9.jpg?v=1673728267076','anger'),
-              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a10.jpg?v=1673728270266','anger')]
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su7.jpg?v=1673728240136','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su8.jpg?v=1673728241594','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su9.jpg?v=1673728243036','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su10.jpg?v=1673728244472','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su1.jpg?v=1673728341543','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su2.jpg?v=1673728343251','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su3.jpg?v=1673728344953','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su4.jpg?v=1673728346718','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su5.jpg?v=1673728348490','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/su6.jpg?v=1673728350185','surprised'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a1.jpg?v=1673728245920','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a2.jpg?v=1673728247326','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a3.jpg?v=1673728248760','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a4.jpg?v=1673728250237','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a5.jpg?v=1673728254247','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a6.jpg?v=1673728257607','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a7.jpg?v=1673728260843','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a8.jpg?v=1673728263947','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a9.jpg?v=1673728267076','angry'),
+              new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/a10.jpg?v=1673728270266','angry')]
 
 //-------------------//
 
@@ -70,47 +71,53 @@ let images = [new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec5
 function startGame() {
   // initialize game variables
   score = 0
-  lives = 0
-  document.getElementById("score").innerHTML = "Your Score: " + (score);
-  document.getElementById("score").classList.remove("hidden");
-  // hide/display the Start/Stop button
-  document.getElementById("startBtn").classList.add("hidden");
-  document.getElementById("stopBtn").classList.remove("hidden");
+  lives = 3
+  
   // show game text & buttons
   document.getElementById("gameText").classList.remove("hidden");
   document.getElementById("happy").classList.remove("hidden");
   document.getElementById("sad").classList.remove("hidden");
-  document.getElementById("surprise").classList.remove("hidden");
-  document.getElementById("anger").classList.remove("hidden");
+  document.getElementById("surprised").classList.remove("hidden");
+  document.getElementById("angry").classList.remove("hidden");
   document.getElementById("neutral").classList.remove("hidden");
+  
+  // hide/display the Start/Stop button
+  document.getElementById("startBtn").classList.add("hidden");
+  document.getElementById("stopBtn").classList.remove("hidden");
+  
+  // show game score & lives
+  document.getElementById("score").innerHTML = "Your Score: " + (score);
+  document.getElementById("score").classList.remove("hidden");
+  document.getElementById("lives").innerHTML = "Lives: " + (lives);
+  document.getElementById("lives").classList.remove("hidden");
+  
   // display random image from array
   displayedImage = getRandomImage();
 }
 
 
-function guess(buttonId) { 
+function guess(buttonId) {
   if(counter < images.length - 1) {
     if (buttonId == displayedImage.emotion) {
       score++;
       counter++;
-      alert("Correct! This emotion is " + displayedImage.emotion);
+      alert("Correct! This emotion is " + displayedImage.emotion + ".");
       document.getElementById("score").innerHTML = "Your Score: " + (score);
     } else {
-      alert("Incorrect. This emotion is " + displayedImage.emotion);
-      lives++;
       counter++;
-      if (lives == 3) {
-        alert("Out of lives! Practice makes perfect, so don't give up!");
+      alert("Incorrect. This emotion is " + displayedImage.emotion + ".");
+      lives-=1;
+      document.getElementById("lives").innerHTML = "Lives: " + (lives);
+      if (lives == 0) {
+        alert("Game over: Out of lives! Practice makes perfect, so don't give up!");
         stopGame();
+        return;
       }
     }
-    // after correct/incorrect result, display another image
-    displayedImage = getRandomImage();
-    
+    displayedImage = getRandomImage(); // after either result, display another image
     return;
-  
   } else {
-    alert("Game over!");
+    alert("Game over! All 50 facial expressions have been shown!");
     stopGame();
   }
 }
@@ -136,35 +143,38 @@ function stopGame() {
   
   // reset Image Object flags to false
   images.forEach(images => images.used = false)
-  // hide/display the Start/Stop button
-  document.getElementById("startBtn").classList.remove("hidden");
-  document.getElementById("stopBtn").classList.add("hidden");
+  
   // rehide game text & buttons
   document.getElementById("gameText").classList.add("hidden");
   document.getElementById("happy").classList.add("hidden");
   document.getElementById("sad").classList.add("hidden");
-  document.getElementById("surprise").classList.add("hidden");
-  document.getElementById("anger").classList.add("hidden");
+  document.getElementById("surprised").classList.add("hidden");
+  document.getElementById("angry").classList.add("hidden");
   document.getElementById("neutral").classList.add("hidden");
+  
+  // hide/display the Start/Stop button
+  document.getElementById("startBtn").classList.remove("hidden");
+  document.getElementById("stopBtn").classList.add("hidden");
+  
+  // hide game score & lives
   document.getElementById("score").classList.add("hidden");
-  // display original website image, can change this to whatever header image we'd like
+  document.getElementById("lives").classList.add("hidden");
+
+  // display original website image
   document.getElementById("randImg").src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/faces.png?v=1673742504057"
 }
 
 
 function getRandomImage() {
   // get a random index, 0 - 49 (inclusive), from images array to get random image
-  var count = 0 // test variable
   var min = Math.ceil(0);
   var max = Math.floor(images.length - 1);
   
   var num = Math.floor(Math.random() * (max - min + 1)) + min;
   
-  // just added additional counter conditional so we don't run into infinite looping while debugging :)
-  while (images[num].used && count < 50) {
+  while (images[num].used) {
     num = Math.floor(Math.random() * (max - min + 1)) + min;
     console.log(num);
-    count++;
   }
     
   document.getElementById("randImg").src=images[num].imageSrc

@@ -172,6 +172,26 @@ input {
   transition: 500ms;
 }
 
+#neutral:hover {
+  background: #cccccc;
+}
+
+#happy:hover {
+  background: #ffd500;
+}
+
+#sad:hover {
+  background: #84ebff;
+}
+
+#surprised:hover {
+  background: #ffab00;
+}
+
+#angry:hover {
+  background: #d80000;
+}
+
 #startBtn {
   background: #abebc6;
   font-family: HK Grotesk;
@@ -191,18 +211,18 @@ input {
 
 #stopBtn {
   margin-top: 20px;
-  background: #ec6a5c;
+  background: #F1948A;
   font-family: HK Grotesk;
   box-shadow: 0 6px #666;
   font-size: 18px;
 }
 
 #stopBtn:hover {
-  background-color: #e7402e;
+  background-color: #cc0000;
 }
 
 #stopBtn:active, #stopBtn.lit {
-  background: #e7402e;
+  background: #cc0000;
   box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
