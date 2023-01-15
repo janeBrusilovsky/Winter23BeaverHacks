@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/faces.png?v=1673742504057" />
+        
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <title>Affective</title>
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <!--
+      This is the body of the page
+      Look at the elements and see how they appear in the rendered page on the right
+      Each element is defined using tags, with < and > indicating where each one opens and closes
+      There are elements for sections of the page, images, text, and more
+      The elements include attributes referenced in the CSS for the page style
+    -->
+
+    <!-- The wrapper and content divs set margins and positioning -->
+    <div class="wrapper">
+      <div class="content" role="main">
+        <!-- This is the start of content for our page -->
+        <h1 class="title">Affective: Emotion Recognition</h1>
+        <div class="game"></div>
+          <img
+            id="randImg"
+            src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/faces.png?v=1673742504057"
+          />
+          <p id ="spacer">       </p>
+          <p id ="gameText" class="hidden">Select the emotion that matches the image!</p>
+          <div class= "game">
+            <button id="neutral" class="hidden" onclick="guess(this.id)">Neutral</button>
+            <button id="happy" class="hidden" onclick="guess(this.id)">Happy</button>
+            <button id="sad" class="hidden" onclick="guess(this.id)">Sad</button>
+            <button id="surprised" class="hidden" onclick="guess(this.id)">Surprised</button>
+            <button id="angry" class="hidden" onclick="guess(this.id)">Angry</button>
+          </div>
+          <div class= "beginBtn">
+            <button id="startBtn" onclick="startGame()"> Start </button>
+            <button id="stopBtn" class="hidden" onclick="stopGame()"> Stop </button>
+          </div>
+          <div id="score" class="hidden">Your Score:</div>
+        <div id="lives" class="hidden">Lives:</div>
+          <!-- will need to appendChild when user makes a decision to display result -->
+        </div>
+        <!-- Instructions on using this project -->
+        <div class="instructions">
+          <h2>What is Affective?</h2>
+          <p> <b>af·fec·tive</b> /əˈfektiv/</p>
+            <p>Relating to moods, feelings or their expression   </p>                                     
+            <p>Affective is a tool for individuals to retrain their ability to recognize and imitate emotions based on facial expressions!</p>  
+          <hr>
+          <h2>How To Play</h2>
+          <p>
+            In Game 1, Emotion Recognition, you can practice your ability to identify emotions based of facial expressions. The facial expressions were pulled from Warsaw Set of Emotional Facial Expression Pictures.
+          </p>
+          <p>
+            Select the emotion that matches the image shown. Each correct answer increases your score, while each incorrect answer loses a life. You are given 3 lives until it's Game Over.
+          </p>
+          <!-- ADD BUTTON HERE -->
+
+          <!-- Once you've added the button from the readme, click it in the page -->
+          <!-- Check out the function in script.js to see how it works -->
+        </div>
+      </div>
+
+    <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
+    <footer class="footer">
+      <div class="links"></div>
+      <a href="http://www.emotional-face.org/wsefep">Warsaw Set of Emotional Facial Expression Pictures</a>
+      <a
+        class="btn--Github"
+        target="_top"
+        href="https://github.com/janeBrusilovsky/Winter23BeaverHacks"
+      >
+        <img
+          src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/github_icon1.png?v=1673730485074"
+        /> 
+      </a>
+    </footer>
+  </body>
+</html>
