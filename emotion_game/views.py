@@ -35,7 +35,7 @@ def identify_emotion_game(request, player_name):
 
 
 def copy_emotion_game(request, player_name):
-    return render(request, 'emotion_game/copy_game.html', {'username': player_name})
+    return render(request, 'index.html', {'username': player_name})
 
 
 def score_report(request, player_name):
