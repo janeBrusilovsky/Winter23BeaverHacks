@@ -1,6 +1,7 @@
 //---Global Variables--//
 
-var score, bestScore, counter = 0
+var score, bestScore, counter, lives;
+score = bestScore = counter = lives = 0;
 var displayedImage = null
 
 class Image {
@@ -69,6 +70,7 @@ let images = [new Image('https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec5
 function startGame() {
   // initialize game variables
   score = 0
+  lives = 0
   document.getElementById("score").innerHTML = "Your Score: " + (score);
   document.getElementById("score").classList.remove("hidden");
   // hide/display the Start/Stop button
@@ -92,28 +94,35 @@ function guess(buttonId) {
       score++;
       counter++;
       alert("Correct! This emotion is " + displayedImage.emotion);
-      // can update score while as game progresses here
-      // would be better to just update the number variable instead of having to rewrite the text "Your Score: " each time sounds good
       document.getElementById("score").innerHTML = "Your Score: " + (score);
     } else {
       alert("Incorrect. This emotion is " + displayedImage.emotion);
+      lives++;
       counter++;
+      if (lives == 3) {
+        alert("Out of lives! Practice makes perfect, so don't give up!");
+        stopGame();
+      }
     }
     // after correct/incorrect result, display another image
     displayedImage = getRandomImage();
     
     return;
-    
+  
   } else {
+    alert("Game over!");
     stopGame();
   }
 }
 
 
 function stopGame() {
-  // alert message doesn't show up when game ends naturally...only when user chooses to stop the game
-  alert("Game over");
   // reset game variables (after saving them to user profile with Django?)
+  /*
+  send score to backend
+  somewhere here
+  Post request to URL (will be given by Matt in Discord)
+  */
   if (score > bestScore) {
     //display previous score too?
     bestScore = score;
@@ -138,8 +147,8 @@ function stopGame() {
   document.getElementById("anger").classList.add("hidden");
   document.getElementById("neutral").classList.add("hidden");
   document.getElementById("score").classList.add("hidden");
-  // display original website image
-  document.getElementById("randImg").src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/blank_image.png?v=1673734648903"
+  // display original website image, can change this to whatever header image we'd like
+  document.getElementById("randImg").src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/faces.png?v=1673742504057"
 }
 
 
@@ -164,15 +173,4 @@ function getRandomImage() {
   return images[num]
 }
 
-
-/*
-function getRandomImage() {
-  var num = Math.floor(Math.random() * (images.length-1 - 0 + 1 )) + 0;
-  if (images[num].used == true) {
-    getRandomImage() // if an image has been used, call getRandomImage() until new one is found
-  }
-  images[num].used = true // set the new image flag to true since it is now used
-  document.getElementById("randImg").src=images[num].imageSrc
-  return images[num]
-}*/
   

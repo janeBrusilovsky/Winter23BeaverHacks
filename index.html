@@ -9,34 +9,15 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <link rel="icon" href="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/faces.png?v=1673742504057" />
+        
 
     <!-- 
       This is an HTML comment
       You can write text in a comment and the content won't be visible in the page
     -->
 
-    <title>Hello World!</title>
-
-    <!-- Meta tags for SEO and social sharing -->
-    <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
-    <meta
-      name="description"
-      content="A simple website, built with Glitch. Remix it to get your own."
-    />
-    <meta name="robots" content="index,follow" />
-    <meta property="og:title" content="Hello World!" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
-    <meta
-      property="og:description"
-      content="A simple website, built with Glitch. Remix it to get your own."
-    />
-    <meta
-      property="og:image"
-      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
-    />
-    <meta name="twitter:card" content="summary" />
+    <title>Affective</title>
 
     <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
@@ -57,12 +38,13 @@
     <div class="wrapper">
       <div class="content" role="main">
         <!-- This is the start of content for our page -->
-        <h1 class="title">Emotion Recognition Game</h1>
+        <h1 class="title">Emotion Recognition</h1>
         <div class="game"></div>
           <img
             id="randImg"
-            src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/blank_image.png?v=1673734648903"
+            src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/faces.png?v=1673742504057"
           />
+          <p id ="spacer">       </p>
           <p id ="gameText" class="hidden">Select the emotion that matches the image!</p>
           <div class= "game">
             <button id="neutral" class="hidden" onclick="guess(this.id)">Neutral</button>
@@ -70,6 +52,8 @@
             <button id="sad" class="hidden" onclick="guess(this.id)">Sad</button>
             <button id="surprise" class="hidden" onclick="guess(this.id)">Surprise</button>
             <button id="anger" class="hidden" onclick="guess(this.id)">Anger</button>
+          </div>
+          <div class= "beginBtn">
             <button id="startBtn" onclick="startGame()"> Start </button>
             <button id="stopBtn" class="hidden" onclick="stopGame()"> Stop </button>
           </div>
@@ -78,9 +62,14 @@
         </div>
         <!-- Instructions on using this project -->
         <div class="instructions">
-          <h2>Using this project</h2>
+          <h2>What is Affective?</h2>
+          <p> <b>af·fec·tive</b> /əˈfektiv/</p>
+            <p>Relating to moods, feelings or their expression   </p>                                     
+            <p>Affective is a tool for individuals to retrain their ability to recognize and imitate emotions based on facial expressions!</p>  
+          <hr>
+          <h2>How To Play</h2>
           <p>
-            Welcome to game one of [project_name]! Here you can practice identifying emotions based on people's facial expressions!
+            In game 1, Emotion Recognition, you can practice your ability to identify emotions based of facial expressions. The facial expressions were pulled from Warsaw Set of Emotional Facial Expression Pictures.
           </p>
           <!-- ADD BUTTON HERE -->
 
@@ -92,6 +81,7 @@
     <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
     <footer class="footer">
       <div class="links"></div>
+      <a href="http://www.emotional-face.org/wsefep">Warsaw Set of Emotional Facial Expression Pictures</a>
       <a
         class="btn--Github"
         target="_top"

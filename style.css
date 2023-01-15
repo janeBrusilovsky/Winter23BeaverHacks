@@ -1,13 +1,3 @@
-/******************************************************************************
-START Glitch hello-app default styles
-
-The styles in this section do some minimal CSS resets, set default fonts and 
-colors, and handle the layout for our footer and "Remix on Glitch" button. If
-you're new to CSS they may seem a little complicated, but you can scroll down
-to this section's matching END comment to see page-specific styles.
-******************************************************************************/
-
-
 /* 
   The style rules specify elements by type and by attributes such as class and ID
   Each section indicates an element or elements, then lists the style properties to apply
@@ -16,8 +6,8 @@ to this section's matching END comment to see page-specific styles.
 
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #69F7BE;
-  --color-text-main: #000000;
+  --color-bg: #faf8ef;
+  --color-text-main: #776e65;
   --color-primary: #FFFF00;
   --wrapper-height: 87vh;
   --image-max-width: 300px;
@@ -131,7 +121,7 @@ body {
 
 /* Very light scaling for our illustration */
 .title {
-  color: #2800FF;
+  color: #776e65;
   font-family: HK Grotesk;
   font-style: normal;
   font-weight: bold;
@@ -165,7 +155,7 @@ body {
 /* Set all images to same size */
 img {
   height: auto;
-  max-width: 75%;
+  max-width: 50%;
   box-sizing: border-box;
 }
 
@@ -183,23 +173,38 @@ input {
 }
 
 #startBtn {
-  background: #7DCEA0;
-  font-family: Trebuchet MS, aria, sans-serif;
+  background: #abebc6;
+  font-family: HK Grotesk;
+  box-shadow: 0 6px #666;
   font-size: 18px;
+}
+
+#startBtn:hover {
+  background-color: #56d68c;
 }
 
 #startBtn:active, #startBtn.lit {
-  background: #ABEBC6;
+  background: #abebc6;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
 }
 
 #stopBtn {
-  background: #CD6155;
-  font-family: Trebuchet MS, aria, sans-serif;
+  margin-top: 20px;
+  background: #ec6a5c;
+  font-family: HK Grotesk;
+  box-shadow: 0 6px #666;
   font-size: 18px;
 }
 
+#stopBtn:hover {
+  background-color: #e7402e;
+}
+
 #stopBtn:active, #stopBtn.lit {
-  background: #F1948A;
+  background: #e7402e;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
 }
 
 #score {
@@ -210,18 +215,6 @@ input {
 
 /* Subheading */
 h2 {
-  color: #2800FF;
+  color: #776e65;
 }
 
-/* Interactive image */
-.illustration:active {
-  transform: translateY(5px);
-}
-
-/* Button dip
-- Toggling this class on and off will move it down and up again
-- The button transition property above determines the speed of the translate (500ms)
-*/
-.dipped {
-  transform: translateY(5px);
-}
