@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/face2.png?v=1673758186148" />
+
+    <title>Affective</title>
+
+    <link rel="stylesheet" href="../../static/style.css" />
+
+    <script src="../../static/identify_game_script.js" defer></script>
+  </head>
+<body>
+    <h1>Score Report for {{ username }}</h1>
+    <h3>Identify Emotion Game Results</h3>
+    <table>
+        <tr>
+            <th>Date/Time Played</th>
+            <th>Score</th>
+        </tr>
+        {% for result in identify_results %}
+            <tr>
+                <th>{{ result.time_played }}</th>
+                <th>{{ result.score }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h3>Imitation Emotion Game Results</h3>
+    <table>
+        <tr>
+            <th>Date/Time Played</th>
+            <th>Score</th>
+        </tr>
+        {% for result in copy_results %}
+            <tr>
+                <th>{{ result.time_played }}</th>
+                <th>{{ result.score }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <footer class="footer">
+      <div class="links"></div>
+      <a href="http://www.emotional-face.org/wsefep">Warsaw Set of Emotional Facial Expression Pictures</a>
+      <a
+        class="btn--Github"
+        target="_top"
+        href="https://github.com/janeBrusilovsky/Winter23BeaverHacks"
+      >
+        <img
+          src="https://cdn.glitch.global/43c6b896-d61a-4458-8e5a-44ec582a72e9/github_icon1.png?v=1673730485074"
+        />
+      </a>
+    </footer>
+</body>
+</html>
