@@ -27,9 +27,6 @@ const Profile = ({ setImage }) => {
   )
   return (
     <div>
-      {/* <h2 className="mb-5 text-center">
-        Use Your Own Camera!
-      </h2> */}
       <div>
         {picture == '' ? (
           <Webcam

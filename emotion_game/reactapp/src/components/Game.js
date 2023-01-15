@@ -5,7 +5,6 @@ import Profile from './Profile'
 const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScore, lives, setLives }) => {
   const [image, setImage] = useState('')
   const [camera, setCamera] = useState(false)
-  const [gameFlag, setGameFlag] = useState(false)
   let userImageEmotion = null
 
   const onSubmit = (e) => {
@@ -27,7 +26,7 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
       method: 'POST',
       url: 'https://face-detection-and-analysis.p.rapidapi.com/face_analysis',
       headers: {
-        'X-RapidAPI-Key': 'e177f1fff9msh86f355bbe6c7e24p1ba68ejsnf004fbfdd24a',
+        'X-RapidAPI-Key': '12f728e6b5msh9f75057015eabfap169eadjsn86579ecf8b5e',
         'X-RapidAPI-Host': 'face-detection-and-analysis.p.rapidapi.com'
       },
       data: data
@@ -37,7 +36,6 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
       .request(options)
       .then(res => {
         console.log('analysis data', res.data)
-
         if (res.data.face_count === 0) {
           alert('Zero faces detected, please try again!')
           setImage('')
@@ -48,31 +46,31 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
         console.log('userimageemotion', userImageEmotion)
         console.log('emotion desired', emotion)
         if (userImageEmotion !== emotion) {
-          console.log('# of lives', lives)
+          console.log('# of lives before dec.:', lives)
           if (lives === 1) {
             setLives(3)
             setScore(0)
             setImage('')
-            // setResult(`Game over: Out of lives! You scored ${score} points. Practice makes perfect, so don't give up!`)
-            alert(`Game over: Out of lives! You scored ${score} points. Practice makes perfect, so don't give up!`)
+            alert(`Game over, not a match!. You scored ${score} points. Practice makes perfect, so don't give up!`)
             return
           }
           setLives(lives-1)
-          // setResult(`We did not detect the ${emotion} emotion, try again!`)
           alert(`We did not detect the ${emotion} emotion, try again!`)
           setTimeout(() => {
-            // setResult('')
-            setImage('')
-          }, 8000)
+            if (camera === false) {
+              setImage('')
+            }
+          }, 5000)
           return
         }
-        // setResult(`Great job, the image matches the emotion. Practice again with the new emotion listed now!`)
-        alert(`Great job, the image matches the emotion. Take another turn with the new emotion listed now!`)
+        alert(`Great job, it's a match. Take another turn with the new emotion!`)
         setScore(score+1)
         getRandomEmotion()
-        // setTimeout(() => {
-        //   // setResult('')
-        // }, 5500)
+        setTimeout(() => {
+          if (camera === false) {
+            setImage('')
+          }
+        }, 5000)
       })
       .catch(error => {
         console.error(error)
@@ -80,9 +78,19 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
   }
 
   const handleStopGame = () => {
+    if (score === 0 && lives === 3) {
+      return
+    }
+
     if (score === 0) {
       setLives(3)
       alert(`Game stopped and has been reset. You scored ${score} points.`)
+      return
+    }
+
+    if (score === 1) {
+      setLives(3)
+      alert(`Game stopped and has been reset. You scored ${score} point.`)
       return
     }
 
@@ -109,14 +117,19 @@ const Game = ({ emotion, setEmotion, setResult, getRandomEmotion, score, setScor
             )}
         </div>
         <div className="buttonContainer">
-          <input type="file" name="image-file" onChange={handleImage}/>
-          <button onClick={() => setCamera(true)}>Take Picture With Camera</button>
+          <input type="file" name="image-file" id="file" onChange={handleImage} className="inputfile"/>
+          <label className="custom-up-label"htmlFor="file">Custom Upload</label>
+          {/* <label htmlFor="file-upload" className="custom-file-upload" onChange={handleImage}>
+            <p className="fa fa-cloud-upload">Custom Upload</p>
+          </label>
+          <input id="file-upload" type="file"/> */}
+          <button className="useCamBtn" onClick={() => setCamera(true)}>Use Your Camera</button>
         </div>
         <div>
-          <button className="submitButton" type="submit" onClick={handleImageSubmit}>Submit Photo</button>
+          <button className="submitButton" type="submit" onClick={handleImageSubmit}>Check Facial Expression</button>
         </div>
         <div>
-          <button className="stopGameButton" onClick={handleStopGame}>Stop / Reset Game</button>
+          <button className="stopResetButton" onClick={handleStopGame}>Stop / Reset Game</button>
         </div>
       </form>
     </div>
